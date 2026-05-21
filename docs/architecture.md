@@ -2,6 +2,8 @@
 
 Stateframe is a file-first task-state ledger for long-horizon agent workflows. The core product surface is a portable `task.ledger.json` file plus generated handoff packets that another agent can inspect before continuing work.
 
+![Stateframe architecture](assets/stateframe-architecture.svg)
+
 ## System Shape
 
 ```mermaid

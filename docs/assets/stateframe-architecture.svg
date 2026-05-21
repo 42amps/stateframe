@@ -1,0 +1,57 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Stateframe architecture</title>
+  <desc id="desc">A file-first task-state ledger flow from transcript and human input to task ledger validation and agent handoff.</desc>
+  <rect width="1200" height="620" fill="#F8FAFC"/>
+  <rect x="42" y="42" width="1116" height="536" rx="28" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="80" y="98" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Stateframe - file-first agent workflow state</text>
+  <text x="80" y="132" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="18">Preserve what is true now, what changed, what failed, and what should happen next.</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="86" y="205" width="190" height="90" rx="16" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2"/>
+    <text x="112" y="242" fill="#1E3A8A" font-size="19" font-weight="800">Transcript</text>
+    <text x="112" y="270" fill="#1E40AF" font-size="15">Raw session context</text>
+
+    <rect x="86" y="340" width="190" height="90" rx="16" fill="#F0FDFA" stroke="#2DD4BF" stroke-width="2"/>
+    <text x="112" y="377" fill="#115E59" font-size="19" font-weight="800">Human input</text>
+    <text x="112" y="405" fill="#0F766E" font-size="15">Decisions and notes</text>
+
+    <rect x="350" y="272" width="210" height="98" rx="16" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
+    <text x="382" y="310" fill="#0F172A" font-size="19" font-weight="800">Candidate review</text>
+    <text x="382" y="338" fill="#475569" font-size="15">Keep signal, reject noise</text>
+
+    <rect x="632" y="205" width="220" height="225" rx="18" fill="#111827"/>
+    <text x="670" y="248" fill="#FFFFFF" font-size="20" font-weight="800">task.ledger.json</text>
+    <text x="670" y="288" fill="#C7D2FE" font-size="15">Task</text>
+    <text x="670" y="320" fill="#C7D2FE" font-size="15">Append-only commits</text>
+    <text x="670" y="352" fill="#C7D2FE" font-size="15">State items</text>
+    <text x="670" y="384" fill="#C7D2FE" font-size="15">Locks and provenance</text>
+
+    <rect x="920" y="205" width="190" height="90" rx="16" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+    <text x="952" y="242" fill="#14532D" font-size="19" font-weight="800">Validate</text>
+    <text x="952" y="270" fill="#166534" font-size="15">Schema and invariants</text>
+
+    <rect x="920" y="340" width="190" height="90" rx="16" fill="#FFF7ED" stroke="#FB923C" stroke-width="2"/>
+    <text x="952" y="377" fill="#7C2D12" font-size="19" font-weight="800">Handoff packet</text>
+    <text x="952" y="405" fill="#9A3412" font-size="15">Next agent context</text>
+  </g>
+
+  <g stroke="#334155" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M276 250H332"/>
+    <path d="M276 385H332"/>
+    <path d="M332 250C332 250 325 321 350 321"/>
+    <path d="M332 385C332 385 325 321 350 321"/>
+    <path d="M560 321H632"/>
+    <path d="M852 250H920"/>
+    <path d="M852 385H920"/>
+  </g>
+  <g fill="#334155">
+    <path d="M332 250L322 244V256L332 250Z"/>
+    <path d="M332 385L322 379V391L332 385Z"/>
+    <path d="M632 321L620 314V328L632 321Z"/>
+    <path d="M920 250L908 243V257L920 250Z"/>
+    <path d="M920 385L908 378V392L920 385Z"/>
+  </g>
+
+  <rect x="80" y="488" width="1040" height="46" rx="12" fill="#EEF2FF" stroke="#C7D2FE"/>
+  <text x="104" y="517" fill="#3730A3" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Design rule: traces explain what happened; Stateframe keeps the compact current-state packet for continuation.</text>
+</svg>

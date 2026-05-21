@@ -7,6 +7,8 @@ A file-first task-state ledger for long-horizon agent workflows.
 
 Status: experimental.
 
+![Stateframe architecture](docs/assets/stateframe-architecture.svg)
+
 Long-running AI work breaks when the next session cannot tell what is true now: what was decided, what was rejected, what is blocked, and what should happen next. Stateframe stores durable task state in a portable local file, `task.ledger.json`, and generates a compact `handoff.md` packet for the next agent.
 
 Memory remembers facts.
