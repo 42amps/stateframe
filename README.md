@@ -26,7 +26,7 @@ That creates `ledger-demo/` with a transcript, reviewable candidates, a complete
 When published, the same CLI shape is intended to work as:
 
 ```bash
-npx stateframe demo
+npx stateframe-cli demo
 stateframe demo
 ```
 

@@ -26,7 +26,7 @@ node dist/cli/index.js help
 When published, the intended usage shape is:
 
 ```bash
-npx stateframe demo
+npx stateframe-cli demo
 stateframe demo
 ```
 

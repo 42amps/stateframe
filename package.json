@@ -1,5 +1,5 @@
 {
-  "name": "stateframe",
+  "name": "stateframe-cli",
   "version": "0.1.0",
   "description": "A file-first task-state ledger for long-horizon agent workflows.",
   "license": "MIT",
