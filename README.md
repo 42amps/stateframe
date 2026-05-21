@@ -42,6 +42,8 @@ npm run stateframe -- handoff --out handoff.md
 
 `task.ledger.json` is the local source of truth: one task, append-only commits, and state items. `handoff.md` is the portable packet you give to any AI agent so it can resume without rereading the whole transcript.
 
+Architecture notes live in [`docs/architecture.md`](docs/architecture.md).
+
 ## Why This Exists
 
 Agent workflows are getting longer than one chat window. A fresh agent often repeats failed approaches, misses earlier constraints, or asks the human to re-explain decisions.
