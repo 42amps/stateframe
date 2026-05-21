@@ -24,8 +24,8 @@
     "node": ">=20"
   },
   "bin": {
-    "stateframe": "./dist/cli/index.js",
-    "ledger": "./dist/cli/index.js"
+    "stateframe": "dist/cli/index.js",
+    "ledger": "dist/cli/index.js"
   },
   "files": [
     "dist",
