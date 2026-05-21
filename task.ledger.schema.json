@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://task-state-ledger.local/task.ledger.schema.json",
+  "title": "Task-State Ledger File",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task", "commits", "state_items"],
+  "properties": {
+    "task": { "$ref": "#/$defs/task" },
+    "commits": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/commit" }
+    },
+    "state_items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/stateItem" }
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "taskDomain": {
+      "type": "string",
+      "enum": ["coding", "research", "ops", "writing", "other"]
+    },
+    "taskStatus": {
+      "type": "string",
+      "enum": ["active", "paused", "complete", "abandoned"]
+    },
+    "authorType": {
+      "type": "string",
+      "enum": ["agent", "human", "system"]
+    },
+    "stateItemType": {
+      "type": "string",
+      "enum": [
+        "decision",
+        "rejected_option",
+        "artifact",
+        "blocker",
+        "assumption",
+        "open_question",
+        "resolved_question",
+        "next_step",
+        "context_fact"
+      ]
+    },
+    "stateItemStatus": {
+      "type": "string",
+      "enum": ["provisional", "locked", "deprecated"]
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "objective",
+        "domain",
+        "status",
+        "created_at",
+        "updated_at",
+        "tags"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "title": { "type": "string", "minLength": 1 },
+        "objective": { "type": "string", "minLength": 1 },
+        "domain": { "$ref": "#/$defs/taskDomain" },
+        "status": { "$ref": "#/$defs/taskStatus" },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "updated_at": { "$ref": "#/$defs/timestamp" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "commit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "task_id",
+        "parent_commit_id",
+        "author_type",
+        "author_id",
+        "session_tool",
+        "timestamp",
+        "summary",
+        "requested_next_action",
+        "raw_context_ref"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "task_id": { "$ref": "#/$defs/uuid" },
+        "parent_commit_id": {
+          "anyOf": [{ "$ref": "#/$defs/uuid" }, { "type": "null" }]
+        },
+        "author_type": { "$ref": "#/$defs/authorType" },
+        "author_id": { "type": "string", "minLength": 1 },
+        "session_tool": { "type": "string", "minLength": 1 },
+        "timestamp": { "$ref": "#/$defs/timestamp" },
+        "summary": { "type": "string", "minLength": 1 },
+        "requested_next_action": {
+          "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        },
+        "raw_context_ref": {
+          "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        }
+      }
+    },
+    "stateItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "task_id",
+        "introduced_in_commit",
+        "superseded_in_commit",
+        "type",
+        "content",
+        "rationale",
+        "confidence",
+        "provenance",
+        "status",
+        "correction_of",
+        "created_at"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "task_id": { "$ref": "#/$defs/uuid" },
+        "introduced_in_commit": { "$ref": "#/$defs/uuid" },
+        "superseded_in_commit": {
+          "anyOf": [{ "$ref": "#/$defs/uuid" }, { "type": "null" }]
+        },
+        "type": { "$ref": "#/$defs/stateItemType" },
+        "content": { "type": "string", "minLength": 1 },
+        "rationale": {
+          "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provenance": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/stateItemStatus" },
+        "correction_of": {
+          "anyOf": [{ "$ref": "#/$defs/uuid" }, { "type": "null" }]
+        },
+        "created_at": { "$ref": "#/$defs/timestamp" }
+      }
+    }
+  }
+}

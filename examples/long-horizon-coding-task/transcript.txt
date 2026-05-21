@@ -1,0 +1,22 @@
+Example transcript for a long-horizon coding task.
+
+Human:
+We are building a file-first task-state ledger for long-horizon agent workflows. The main artifact should be task.ledger.json, not a hosted service. The web UI can stay in the repo, but don't spend time on it for v1.
+
+Agent:
+I can add a VS Code extension so agents can read the ledger from the editor.
+
+Human:
+Do not build a VS Code extension in v1. It is tempting, but the first release should prove the local file protocol and CLI workflow. Also do not add auth yet. There is no hosted user model in this phase.
+
+Agent:
+Understood. I will focus on the CLI. Current project state: there is already a Next app, Supabase migration, domain model, handoff generator, and initial CLI commands for init/add/lock/handoff.
+
+Human:
+Right. Add transcript extraction as a file-first CLI command. It should read transcript.txt, call a provider, and write candidates.json. Then a separate command should commit edited candidates into task.ledger.json as provisional items. Do not store raw transcripts in the ledger.
+
+Agent:
+So the workflow is extract, edit candidates.json, commit-candidates, lock trusted items, handoff.
+
+Human:
+Yes. Next step is to tighten OSS packaging: README, protocol docs, JSON Schema, and an example showing why rejected options matter. The next agent should not retry the VS Code extension idea.

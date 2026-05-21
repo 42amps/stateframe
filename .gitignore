@@ -1,0 +1,10 @@
+.env*.local
+.next/
+node_modules/
+dist/
+ledger-demo/
+*.tgz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tsconfig.tsbuildinfo

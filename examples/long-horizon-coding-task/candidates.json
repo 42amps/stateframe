@@ -1,0 +1,57 @@
+{
+  "task_id": "11111111-1111-4111-8111-111111111111",
+  "created_at": "2026-05-20T16:45:00.000Z",
+  "session_tool": "manual-transcript",
+  "session_summary": "The session clarified that the project is pivoting toward a file-first CLI/protocol workflow, with transcript extraction and OSS packaging prioritized over web UI work.",
+  "requested_next_action": "Create README, protocol documentation, JSON Schema, and an example handoff demonstrating rejected options.",
+  "items": [
+    {
+      "client_id": "candidate-1",
+      "type": "decision",
+      "content": "The main product surface for v1 is the local file-first CLI workflow around task.ledger.json.",
+      "rationale": "The human explicitly said the web app can remain but should not be the focus for v1.",
+      "confidence": 0.94,
+      "provenance": "Human direction in transcript"
+    },
+    {
+      "client_id": "candidate-2",
+      "type": "rejected_option",
+      "content": "Do not build a VS Code extension in v1.",
+      "rationale": "The first release should prove the local file protocol and CLI workflow before editor integrations.",
+      "confidence": 0.95,
+      "provenance": "Explicit human instruction in transcript"
+    },
+    {
+      "client_id": "candidate-3",
+      "type": "rejected_option",
+      "content": "Do not add auth yet.",
+      "rationale": "There is no hosted user model in this phase.",
+      "confidence": 0.95,
+      "provenance": "Explicit human instruction in transcript"
+    },
+    {
+      "client_id": "candidate-4",
+      "type": "context_fact",
+      "content": "The repository already contains a Next app, Supabase migration, domain model, handoff generator, and initial CLI commands.",
+      "rationale": null,
+      "confidence": 0.9,
+      "provenance": "Agent summary accepted by human"
+    },
+    {
+      "client_id": "candidate-5",
+      "type": "decision",
+      "content": "Transcript extraction should write candidates.json, and a separate command should commit reviewed candidates as provisional state.",
+      "rationale": "Separating extraction from commit allows human review by editing the candidates file.",
+      "confidence": 0.92,
+      "provenance": "Human requirements in transcript"
+    },
+    {
+      "client_id": "candidate-6",
+      "type": "next_step",
+      "content": "Create README, protocol documentation, JSON Schema, and an example handoff demonstrating rejected options.",
+      "rationale": null,
+      "confidence": 0.94,
+      "provenance": "Explicit next step in transcript"
+    }
+  ]
+}
